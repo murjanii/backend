@@ -7,8 +7,8 @@ const app = express()
 app.use(express.json())
 // Decrypt the data 
 app.use(cors({
-    origin: 'http://localhost:5173',
-}))
+    origin: 'https://frontend-1-zeta.vercel.app',
+})) 
 // allow requests from 5173 port
 
 // router level middleware4
@@ -35,9 +35,11 @@ const checkError = (err, req, res, next) => {
 
 app.post('/register', valid, (req, res) => {
     console.log(req.body)
+    res.send('Registration data received')
+    // 
 });
 
-app.use(checkError)
+// app.use(checkError)
 
 app.listen('8000', () => {
     console.log('Server is running on port 8000')
